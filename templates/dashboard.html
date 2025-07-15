@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<style>
+    /* General Page Styling */
+  body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color:rgb(237, 239, 241); /* Soft solar-inspired background */
+    }
+
+    /* Main Section Styling */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 40px;
+        background: linear-gradient(to bottom,rgb(226, 237, 241),rgb(218, 227, 234)); /* Solar yellow theme */
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0px 4px 6px rgba(38, 236, 24, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+
+
+
+    .form-container h1 {
+        font-size: 2.8rem;
+        color:rgb(12, 18, 12);
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        display: block;
+        font-size: 1.2rem;
+        color:rgb(12, 18, 12);;
+        margin: 15px 0 5px;
+    }
+
+    .form-container input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .form-container input[type="submit"] {
+        padding: 12px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #2e7d32;; /* Solar green for call-to-action */
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .form-container input[type="submit"]:hover {
+        background-color: #2e7d32;
+    }
+
+    /* Footer Styling */
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color:rgb(10, 12, 10); /* Dark footer for contrast */
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('{{ url_for("static", filename="images/01.jpg") }}') no-repeat center center fixed;
+        background-size: cover;
+        background-color:rgb(237, 239, 241); /* fallback */
+    }
+
+    .form-container {
+        background: rgba(244, 246, 247, 0.9); /* Slightly transparent for overlay effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        color: #333;
+        border-radius: 30px;
+        box-shadow: 0px 4px 6px rgba(38, 236, 24, 0.1);
+        margin: 40px auto;
+        max-width: 600px;
+    }
+
+    /* Keep rest of your styles same... */
+</style>
+
+{% endblock %}
+
+{% block content %}
+<!-- Solar Panel Image Section -->
+<div class="image-section"></div>
+
+<!-- Form Section -->
+<div class="form-container">
+    <h1>Dashboard</h1>
+    <p>Calculate your solar energy savings here.</p>
+
+    <form method="post" enctype="multipart/form-data">
+
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3 position-relative">
+            {{ form.panel_type.label(class="form-label") }}
+            {{ form.panel_type(class="form-select ps-5") }}
+
+        </div>
+
+        <div class="mb-3 position-relative">
+            {{ form.number_of_panels.label(class="form-label") }}
+            {{ form.number_of_panels(class="form-control ps-5", placeholder="No.of Panels") }}
+        </div>
+
+        
+
+        <div class="mb-3 position-relative">
+            {{ form.electricity_cost.label(class="form-label") }}
+            {{ form.electricity_cost(class="form-control ps-5", placeholder="Enter your electricity cost") }}
+        </div>
+
+        <div class="mb-3 position-relative">
+            {{ form.sunlight_hours.label(class="form-label") }}
+            {{ form.sunlight_hours(class="form-control ps-5", placeholder="Enter the Sunlight Hours") }}
+        </div>
+
+        <div class="mb-3 position-relative">
+            {{ form.pincode.label(class="form-label") }}
+            {{ form.pincode(class="form-control ps-5", placeholder="Enter your Pincode") }}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary w-100") }}
+        </div>
+    </form>
+
+    {% if sunlight_hours %}
+        <p><strong>Sunlight Hours:</strong> {{ sunlight_hours }} hours</p>
+    {% endif %}
+
+    <!-- Results Section -->
+    {% if energy_output %}
+        <h2>Here are the results:</h2>
+        <p><strong>Energy Output:</strong> {{ energy_output }} kWh/year</p>
+
+        {% set usd_to_inr = 83 %}  <!-- Conversion Rate for USD to INR (you may fetch this dynamically) -->
+        
+        {% set installation_cost_inr = installation_cost * usd_to_inr %}
+        <p><strong>Installation Cost:</strong> ₹{{ installation_cost_inr | round(2) }}</p>
+
+        {% set annual_savings_inr = annual_savings * usd_to_inr %}
+        <p><strong>Annual Savings:</strong> ₹{{ annual_savings_inr | round(2) }}</p>
+
+        {% set payback_period_int = ppr | round(2) %} <!-- Rounding the payback period to integer -->
+        <p><strong>Payback Period:</strong> {{ payback_period_int }} years</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

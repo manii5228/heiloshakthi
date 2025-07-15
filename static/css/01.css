@@ -1,0 +1,28 @@
+/* Background color for headings */
+h1 {
+    background-color: #2f96f0; /* Light blue */
+    font-family: "American Typewriter", sans-serif; /* Set a font */
+    margin: 25px; /* Add units */
+    padding: 20px; /* Add units */
+}
+
+/* Background image */
+.background-image {
+    background-image: url('../images/01.jpg'); /* Relative path */
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Set the height to the viewport */
+    width: 100%; /* Full width */
+}
+
+/* Gradient background */
+.gradient-background {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient colors */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    color: white; /* Set text color */
+    display: flex; /* Center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}

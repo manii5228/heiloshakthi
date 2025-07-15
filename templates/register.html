@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Helioshakti{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right,rgb(236, 237, 239),rgb(231, 231, 241));
+    }
+
+    .register-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+
+    .register-container {
+        background-color: #ffffff;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(15, 5, 5, 0.15);
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .register-container h2 {
+        color:#333;
+        margin-bottom: 25px;
+        font-size: 2rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        text-align: left;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #333;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color:rgb(232, 233, 242);
+        outline: none;
+        box-shadow: 0 0 6px rgba(243, 244, 248, 0.89);
+    }
+
+    .btn-submit {
+        background-color:#43a047;
+        color: white;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: #2e7d32;
+    }
+
+    .login-link {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+
+    .login-link a {
+        color:rgb(27, 41, 204);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        background-color: #263238;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+        .register-container {
+            padding: 30px 20px;
+        }
+
+        .register-container h2 {
+            font-size: 1.6rem;
+        }
+    }
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('{{ url_for("static", filename="images/01.jpg") }}') no-repeat center center fixed;
+        background-size: cover;
+        background-color:rgb(226, 231, 229); /* fallback */
+    }
+
+    .form-container {
+        background: rgba(14, 16, 15, 0.9); /* Slightly transparent for overlay effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        color: #333;
+        border-radius: 30px;
+        box-shadow: 0px 4px 6px rgba(10, 108, 3, 0.1);
+        margin: 40px auto;
+        max-width: 600px;
+    }
+</style>
+
+<div class="register-wrapper">
+    <div class="register-container">
+        <h2>Create Your Account</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control", placeholder="Enter username") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", placeholder="Enter email address") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="Enter password") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-label") }}
+                {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            </div>
+
+            <button type="submit" class="btn-submit">Register</button>
+        </form>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Helioshakti - Empowering a Brighter Future</p>
+</footer>
+{% endblock %}

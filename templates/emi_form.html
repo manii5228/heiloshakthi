@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}EMI Form{% endblock %}
+
+{% block content %}
+<style>
+    /* General Page Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color:rgb(204, 206, 207); /* Soft solar-inspired background */
+    }
+
+    /* Main Section Styling */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 40px;
+        background: linear-gradient(to bottom,rgb(242, 243, 245),rgb(246, 248, 252)); /* Solar yellow theme */
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    .form-container h1 {
+        font-size: 2.8rem;
+        color:rgb(10, 10, 16);
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        display: block;
+        font-size: 1.2rem;
+        color:rgb(10, 9, 9);
+        margin: 15px 0 5px;
+    }
+
+    .form-container input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+
+    .form-container button {
+        padding: 12px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #388e3c; /* Solar green for call-to-action */
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .form-container button:hover {
+        background-color: #2e7d32;
+    }
+
+    /* Footer Styling */
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #263238; /* Dark footer for contrast */
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('{{ url_for("static", filename="images/01.jpg") }}') no-repeat center center fixed;
+        background-size: cover;
+        background-color:rgb(226, 231, 229); /* fallback */
+    }
+
+    .form-container {
+        background: rgba(252, 253, 252, 0.9); /* Slightly transparent for overlay effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        color: #333;
+        border-radius: 30px;
+        box-shadow: 0px 4px 6px rgba(10, 108, 3, 0.1);
+        margin: 40px auto;
+        max-width: 600px;
+    }
+</style>
+
+<body>
+    <!-- Form Section -->
+    <div class="form-container">
+        <h1>Calculate EMI Options</h1>
+        <form method="post">
+            <label>Total Cost (in ₹):</label>
+            <input type="number" name="total_cost" step="0.01" required>
+            
+            <label>Subsidy (in ₹):</label>
+            <input type="number" name="subsidy" step="0.01" required>
+            
+            <label>Down Payment (in ₹):</label>
+            <input type="number" name="down_payment" step="0.01" required>
+            
+            <label>Annual Interest Rate (in %):</label>
+            <input type="number" name="annual_interest_rate" step="0.01" required>
+            
+            <label>Loan Tenure (in years):</label>
+            <input type="number" name="tenure_years" required>
+            
+            <button type="submit">Calculate EMI</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Helioshakti - Empowering a Brighter Future</p>
+    </footer>
+</body>
+{% endblock %}

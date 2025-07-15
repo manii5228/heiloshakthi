@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Helioshakti - Home{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #fef8e4;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.6)),
+                    url('{{ url_for("static", filename="images/01.jpg") }}') center/cover no-repeat;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        max-width: 700px;
+        margin-bottom: 30px;
+    }
+
+    .btn-primary {
+        background-color: #43a047;
+        color: white;
+        padding: 12px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary:hover {
+        background-color: #668e38ff;
+    }
+
+    /* Features Section */
+    .features {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #fff9c4;
+    }
+
+    .features h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .feature-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        max-width: 1200px;
+    }
+
+    .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px;
+        width: 280px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+        color: #f9a825;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #263238;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.4rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .card {
+            width: 90%;
+        }
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Power Your World with Helioshakti</h1>
+    <p>We help you harness solar energy to save money, conserve resources, and shape a sustainable future.</p>
+    <a href="/dashboard" class="btn-primary">Get Started</a>
+</div>
+
+<!-- Features Section -->
+<div class="features">
+    <h2>Why Choose Us</h2>
+    
+    <div class="feature-cards">
+
+    <a href="{{ url_for('subsidies') }}" class="card-link">
+        <div class="card">
+            <h3>Subsidy Calculator</h3>
+            <p>Check eligibility and calculate savings with available government subsidies.</p>
+        </div>
+    </a>
+
+    <a href="{{ url_for('emi_options') }}" class="card-link">
+        <div class="card">
+            <h3>EMI Planning</h3>
+            <p>Plan your solar system investment with easy monthly installments.</p>
+        </div>
+    </a>
+
+    <a href="{{ url_for('roi_updates') }}" class="card-link">
+        <div class="card">
+            <h3>ROI Tracking</h3>
+            <p>Monitor your return on investment over time and maximize energy efficiency.</p>
+        </div>
+    </a>
+
+    <a href="{{ url_for('maintenance') }}" class="card-link">
+        <div class="card">
+            <h3>Maintenance Alerts</h3>
+            <p>Get timely reminders to keep your solar setup in top condition.</p>
+        </div>
+    </a>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Helioshakti - Empowering a Brighter Future</p>
+</footer>
+{% endblock %}

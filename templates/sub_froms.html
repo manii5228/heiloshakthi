@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Subsidy Calculator{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg,rgb(226, 237, 241),rgb(218, 227, 234));
+    }
+
+    .hero {
+        position: relative;
+        height: 35vh;
+        background-size: cover;
+        background-position: center;
+        border-radius: 0 0 30px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-text {
+        background-color:rgb(22, 25, 28););
+        padding: 20px 40px;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .form-wrapper {
+        max-width: 500px;
+        margin: 40px auto;
+        background: rgb(218, 227, 234);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .form-wrapper h2 {
+        color:rgb(20, 21, 20);;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+    }
+
+    .form-wrapper label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color:rgb(9, 10, 10);
+    }
+
+    .form-wrapper input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fefefe;
+    }
+
+    .form-wrapper input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: #2e7d32;;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .form-wrapper input[type="submit"]:hover {
+        background-color: #2e7d32;;;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #263238;
+        color: white;
+        border-top: 1px solid #444;
+        margin-top: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .hero-text {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+        }
+        .form-wrapper {
+            margin: 20px;
+            padding: 20px;
+        }
+    }
+     body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('{{ url_for("static", filename="images/01.jpg") }}') no-repeat center center fixed;
+        background-size: cover;
+        background-color:rgb(226, 231, 229); /* fallback */
+    }
+
+    .form-container {
+        background: rgba(14, 16, 15, 0.9); /* Slightly transparent for overlay effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        color: #333;
+        border-radius: 30px;
+        box-shadow: 0px 4px 6px rgba(10, 108, 3, 0.1);
+        margin: 40px auto;
+        max-width: 600px;
+    }
+</style>
+
+<body>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <div class="hero-text">Solar EMI / Subsidy Calculator</div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-wrapper">
+        <h2>Estimate Your Subsidy</h2>
+        <form method="POST">
+            <label for="capacity">System Capacity (in kW)</label>
+            <input type="text" id="capacity" name="capacity" placeholder="e.g., 3.5">
+
+            <label for="cost">Total Cost (in ₹)</label>
+            <input type="text" id="cost" name="cost" placeholder="e.g., 150000">
+
+            <input type="submit" value="Calculate Subsidy">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Helioshakti — Empowering a Brighter Future
+    </footer>
+</body>
+{% endblock %}

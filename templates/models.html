@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Solar Panel Models{% endblock %}
+
+{% block css %}
+<style>
+    .model-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+    .card h4 {
+        font-size: 1.5rem;
+        color: #2e7d32;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 10px;
+    }
+
+    .btn-success {
+        background-color: #2e7d32;
+        color: #fff;
+        padding: 10px 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #1b5e20;
+    }
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Available Solar Panel Models</h2>
+    <div class="row">
+        {% for panel in panels %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="{{ panel.image }}" class="card-img-top" alt="{{ panel.brand }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ panel.brand }} ({{ panel.quality|capitalize }} Quality)</h5>
+                    <p class="card-text">Output: {{ panel.output }} W</p>
+                    <p class="card-text">Price: ₹{{ panel.price }}</p>
+                    <a href="{{ panel.link }}" class="btn btn-success" target="_blank">View Product</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
