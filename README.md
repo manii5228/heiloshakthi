@@ -49,19 +49,37 @@
 
 ## 🗂️ Directory Structure
 helioshakthi/
+
 ├── app.py # Main Flask application
+
 ├── forms.py # Form definitions (Login, Register, Dashboard)
+
 ├── models.py # DB Models: User, UsageData, Maintenance
+
 ├── templates/ # HTML templates
+
 │ ├── base.html
+
 │ ├── dashboard.html
+
 │ ├── login.html
+
 │ ├── register.html
+
 │ ├── results.html
+
 │ ├── models.html
+
+
 │ └── ... etc
+
+
 ├── static/
+
 │ ├── css/global.css
+
 │ └── images/ # 02.jpeg, 03.jpeg, 04.jpeg, etc.
+
 ├── solar.db # SQLite DB (auto-generated)
+
 └── README.md
