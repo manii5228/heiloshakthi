@@ -102,11 +102,13 @@ pip install -r requirements.txt
 python app.py
 
 ```
-##👥 Group Members
--Soma Prathibha
--Dasari Vasu
--Innamuri Sai Ram
--Mani MAnjunath .V
+
+
+##👥 Group Members 
+- **Soma Prathibha** (Backend)
+- **Dasari Vasu** (Frontend, R&D)
+- **Innamuri Sai Ram** (Frontend, R&D)
+- **Mani Manjunath.V** (Backend)
 
 GitHub: github.com/manii5228
 Project Repo: Helioshakti 🔗
