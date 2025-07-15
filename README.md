@@ -4,9 +4,6 @@
 
 ![Helioshakti Banner](static/images/banner5.png)
 ![Helioshakti Banner](static/images/banner4.png)
-![Helioshakti login](static/images/banner3.png)
-![Helioshakti Register](static/images/banner2.png)
-![Helioshakti Models](static/images/banner1.png)
 
 ---
 
