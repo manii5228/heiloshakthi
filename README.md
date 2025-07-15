@@ -61,14 +61,6 @@ helioshakthi/
 
 │ ├── dashboard.html
 
-│ ├── login.html
-
-│ ├── register.html
-
-│ ├── results.html
-
-│ ├── models.html
-
 │ └── ... etc
 
 ├── static/
@@ -80,3 +72,33 @@ helioshakthi/
 ├── solar.db # SQLite DB (auto-generated)
 
 └── README.md
+
+---
+
+## 🛠️ Setup & Installation
+
+### ✅ Prerequisites:
+- Python 3.10+
+- pip (Python package installer)
+
+### 📥 Steps to Run:
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/manii5228/helioshakthi.git
+cd helioshakthi
+
+# 2. Create & activate a virtual environment
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On Mac/Linux
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Start the app
+python app.py
+
+```
