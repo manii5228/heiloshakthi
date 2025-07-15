@@ -2,7 +2,7 @@
 
 > **Empowering users to estimate savings, manage installations, and monitor solar energy through an intelligent, interactive web dashboard.**
 
-![Helioshakti Banner](https://raw.githubusercontent.com/manii5228/helioshakthi/main/static/images/banner5.png)
+![Helioshakti Banner]([https://raw.githubusercontent.com/manii5228/helioshakthi/main/static/images/banner5.png](https://github.com/manii5228/heiloshakthi/blob/cd7eab911da553a9ca23edd25190c65008cdee2a/static/images/banner5.png))
 ![Helioshakti Banner](https://raw.githubusercontent.com/manii5228/helioshakthi/main/static/images/banner4.png)
 ![Helioshakti login](https://raw.githubusercontent.com/manii5228/helioshakthi/main/static/images/banner3.png)
 ![Helioshakti Register](https://raw.githubusercontent.com/manii5228/helioshakthi/main/static/images/banner2.png)
